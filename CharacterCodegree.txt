@@ -1,0 +1,13 @@
+CharacterCodegree := function(G)
+
+codG := [1];
+ctg := CharacterTable(G);
+for chi in ctg do
+	t1 := #Kernel(chi)*Degree(chi);
+	t := #G/t1;
+	if t notin codG then
+		Append(~codG, t);	
+	end if;
+end for;
+return Sort(codG);
+end function;

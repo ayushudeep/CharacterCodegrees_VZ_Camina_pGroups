@@ -1,0 +1,15 @@
+CharacterCodNonlinear := function(G)
+
+codG := [];
+ctg := CharacterTable(G);
+for chi in ctg do
+	if Degree(chi) gt 1 then
+		t1 := #Kernel(chi)*Degree(chi);
+		t := #G/t1;
+		if t notin codG then
+			Append(~codG, t);	
+		end if;
+	end if;
+end for;
+return Sort(codG);
+end function;
